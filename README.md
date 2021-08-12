@@ -1,27 +1,37 @@
 # AppTestingJest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.2.
+# run your Angular tests without a browser
 
-## Development server
+# run test suite several times faster
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Install the needed dependencies
 
-## Code scaffolding
+    $ npm install jest jest-preset-angular @types/jest --save-dev
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    or
 
-## Build
+    $ yarn add jest jest-preset-angular @types/jest --dev
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+2. Let's say we've generated an Angular application called app-testing-jest with the following command:  
 
-## Running unit tests
+    $ ng new app-testing-jest
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Create the jest.config.js file at the root of your project
 
-## Running end-to-end tests
+    const { pathsToModuleNameMapper } = require('ts-jest/utils');
+    const { compilerOptions } = require('./tsconfig');
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+    module.exports = {
+    preset: 'jest-preset-angular',
+    roots: ['<rootDir>/src/'],
+    testMatch: ['**/+(*.)+(spec).+(ts)'],
+    setupFilesAfterEnv: ['<rootDir>/src/test.ts'],
+    collectCoverage: true,
+    coverageReporters: ['html'],
+    coverageDirectory: 'coverage/my-app',
+    moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths || {}, {
+        prefix: '<rootDir>/'
+    })
+    };
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    
