@@ -6,15 +6,15 @@
 
 1. Install the needed dependencies
 
-    $ npm install jest jest-preset-angular @types/jest --save-dev
+        $ npm install jest jest-preset-angular @types/jest --save-dev
 
     or
 
-    $ yarn add jest jest-preset-angular @types/jest --dev
+        $ yarn add jest jest-preset-angular @types/jest --dev
 
 2. Let's say we've generated an Angular application called app-testing-jest with the following command:  
 
-    $ ng new app-testing-jest
+        $ ng new app-testing-jest
 
 3. Create the jest.config.js file at the root of your project
 
@@ -114,11 +114,11 @@ Replace the content of the src/test.ts with the following:
 
     + Remove dependencies
 
-        $ npm uninstall karma karma-chrome-launcher karma-coverage-istanbul-reporter karma-jasmine karma-jasmine-html-reporter
+            $ npm uninstall karma karma-chrome-launcher karma-coverage-istanbul-reporter karma-jasmine karma-jasmine-html-reporter
 
         or
 
-        $ yarn remove karma karma-chrome-launcher karma-coverage-istanbul-reporter karma-jasmine karma-jasmine-html-reporter
+            $ yarn remove karma karma-chrome-launcher karma-coverage-istanbul-reporter karma-jasmine karma-jasmine-html-reporter
 
     + Remove the Karma configuration file 
 
