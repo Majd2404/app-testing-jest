@@ -1,11 +1,18 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
+/* 
+1. Register Jest's type definitions files with the TypeScript compiler.
+2. Enable the esModuleInterop option of the TypeScript compiler otherwise Jest will output a lot of warnings in the console.
+3. Enable the emitDecoratorMetadata option of the TypeScript compiler otherwise Angular's Dependency Injection won't work with Jest.
+*/
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
     "types": [
-      "jasmine"
-    ]
+      "jest", // 1
+      "node"
+    ],
+    "esModuleInterop": true, // 2
+    "emitDecoratorMetadata": true // 3
   },
   "files": [
     "src/test.ts",
